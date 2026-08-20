@@ -1,0 +1,6 @@
+name: Challengess
+version: '1.0.0'
+main: cz.craft.challengess.ChallengessPlugin
+api-version: '1.20'
+author: Craft
+description: Custom Paper plugin for GUI challenges and Discord approval webhook.
