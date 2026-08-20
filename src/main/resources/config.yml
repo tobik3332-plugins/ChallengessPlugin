@@ -1,0 +1,135 @@
+# ========================================================
+#          Challengess Plugin - Konfigurace
+# ========================================================
+
+# Discord Webhook Settings / Nastavení Discord Webhooku
+discord:
+  enabled: true
+  # Vložte URL vašeho Discord Webhooku
+  webhook-url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_URL_HERE"
+  # Zpráva odeslaná na Discord ({player} bude nahrazeno jménem hráče)
+  message: "@everyone Hráč **{player}** zažádal o schválení!"
+  # Cooldown na odeslání žádosti v sekundách (ochrana proti spamu)
+  cooldown-seconds: 60
+
+# Messages Settings / Nastavení zpráv v chatu
+messages:
+  prefix: "<gradient:#ff5555:#ffaa00>[Challengess]</gradient> "
+  no-permission: "<red>Nemáš oprávnění k tomuto příkazu!"
+  reload-success: "<green>Konfigurace byla úspěšně znovu načtena!"
+  request-sent: "<green>Tvoje žádost o schválení byla úspěšně odeslána na Discord!"
+  request-cooldown: "<red>Musíš počkat ještě {time} sekund před dalším odesláním!"
+  webhook-error: "<red>Webhook URL není správně nastavena v config.yml!"
+
+# ========================================================
+#  GUI 1 - Hlavní Menu (příkaz /challengess)
+# ========================================================
+gui1:
+  title: "<dark_gray>Main Menu"
+  rows: 3 # Velikost GUI (1-6 řádků, 3 = 27 slotů)
+  fill-empty: true
+  filler-item: "GRAY_STAINED_GLASS_PANE"
+  
+  items:
+    # Tlačítko pro žádost na Discord
+    request-approval:
+      slot: 11
+      material: "PAPER"
+      name: "<yellow><bold>Zažádat o schválení"
+      lore:
+        - "<gray>Kliknutím odešleš žádost"
+        - "<gray>na náš Discord server."
+        - ""
+        - "<green> Klikni pro odeslání!"
+        
+    # Tlačítko pro přechod do GUI 2
+    challenges:
+      slot: 15
+      material: "BOOK"
+      name: "<gold><bold>Challenges"
+      lore:
+        - "<gray>Kliknutím otevřeš"
+        - "<gray>seznam výzev."
+        - ""
+        - "<yellow> Klikni pro otevření!"
+
+# ========================================================
+#  GUI 2 - Challenges Menu
+# ========================================================
+gui2:
+  title: "<dark_gray>Challenges Menu"
+  rows: 4 # 4 řádky = 36 slotů
+  fill-empty: true
+  filler-item: "GRAY_STAINED_GLASS_PANE"
+  
+  # Tlačítko pro návrat do GUI 1
+  back-button:
+    slot: 31
+    material: "BARRIER"
+    name: "<red><bold>Zpět"
+    lore:
+      - "<gray>Návrat do Hlavního Menu"
+      
+  # Tlačítko pro otevření GUI 3 (Advancements)
+  advancements:
+    slot: 13
+    material: "NETHER_STAR"
+    name: "<aqua><bold>Advancements"
+    lore:
+      - "<gray>Kliknutím otevřeš"
+      - "<gray>seznam pokroků."
+      
+  # Vlastní tlačítka v GUI 2 (můžete přidávat libovolný počet položek)
+  # [CONSOLE] spustí příkaz jako konzole, [PLAYER] jako hráč
+  custom-items:
+    item_1:
+      slot: 11
+      material: "DIAMOND_SWORD"
+      name: "<green>Bojová Výzva"
+      lore:
+        - "<gray>Kliknutím získáš odměnu"
+      commands:
+        - "[CONSOLE] give {player} diamond_sword 1"
+        - "[PLAYER] say Splnil jsem bojovou výzvu!"
+    item_2:
+      slot: 15
+      material: "GOLDEN_APPLE"
+      name: "<gold>Prestižní Odměna"
+      lore:
+        - "<gray>Přidá peníze na účet"
+      commands:
+        - "[CONSOLE] eco give {player} 100"
+
+# ========================================================
+#  GUI 3 - Advancements Menu
+# ========================================================
+gui3:
+  title: "<dark_gray>Advancements Menu"
+  rows: 4
+  fill-empty: true
+  filler-item: "GRAY_STAINED_GLASS_PANE"
+  
+  # Tlačítko pro návrat do GUI 2
+  back-button:
+    slot: 31
+    material: "BARRIER"
+    name: "<red><bold>Zpět"
+    lore:
+      - "<gray>Návrat do Challenges Menu"
+      
+  # Vlastní itemy na libovolných slotech v GUI 3
+  custom-items:
+    adv_1:
+      slot: 10
+      material: "EMERALD"
+      name: "<green>První Pokrok"
+      lore:
+        - "<gray>Stav: <green>Splněno"
+        - "<gray>Získal jsi první diamant!"
+    adv_2:
+      slot: 12
+      material: "BEACON"
+      name: "<purple>Mystický Pokrok"
+      lore:
+        - "<gray>Stav: <red>Nesplněno"
+        - "<gray>Postav maják na spawnu."
