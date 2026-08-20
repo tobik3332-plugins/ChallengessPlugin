@@ -1,21 +1,23 @@
 package cz.craft.challengess;
 
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-public class ChallengessCommand implements CommandExecutor {
+public class ChallengessCommand extends Command {
 
     private final ChallengessPlugin plugin;
 
     public ChallengessCommand(ChallengessPlugin plugin) {
+        super("challengess");
         this.plugin = plugin;
+        this.setDescription("Hlavni prikaz pro Challengess plugin");
+        this.setPermission("challengess.use");
     }
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
+    public boolean execute(@NotNull CommandSender sender, @NotNull String commandLabel, @NotNull String[] args) {
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
             if (!sender.hasPermission("challengess.admin")) {
                 String noPerm = plugin.getConfig().getString("messages.no-permission");
