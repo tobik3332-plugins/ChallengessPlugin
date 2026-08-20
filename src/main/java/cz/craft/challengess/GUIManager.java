@@ -75,11 +75,11 @@ public class GUIManager {
         // Back Button
         createItem(inv, config.getConfigurationSection("gui3.back-button"), "open_gui_2", null);
 
-        // Custom Advancements Items
+        // Custom Advancements Items (povoleno spouštění příkazů stejně jako v GUI 2)
         ConfigurationSection customSection = config.getConfigurationSection("gui3.custom-items");
         if (customSection != null) {
             for (String key : customSection.getKeys(false)) {
-                createItem(inv, customSection.getConfigurationSection(key), "custom_item", "gui3.custom-items." + key);
+                createItem(inv, customSection.getConfigurationSection(key), "execute_command", "gui3.custom-items." + key);
             }
         }
 
