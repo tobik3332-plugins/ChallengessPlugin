@@ -79,7 +79,7 @@ gui2:
       - "<gray>Kliknutím otevřeš"
       - "<gray>seznam pokroků."
       
-  # Vlastní tlačítka v GUI 2 (můžete přidávat libovolný počet položek)
+  # Vlastní tlačítka v GUI 2
   # [CONSOLE] spustí příkaz jako konzole, [PLAYER] jako hráč
   custom-items:
     item_1:
@@ -118,6 +118,7 @@ gui3:
       - "<gray>Návrat do Challenges Menu"
       
   # Vlastní itemy na libovolných slotech v GUI 3
+  # Nyní můžete ke každému itemu v GUI 3 přidat i příkazy (commands:)
   custom-items:
     adv_1:
       slot: 10
@@ -125,7 +126,10 @@ gui3:
       name: "<green>První Pokrok"
       lore:
         - "<gray>Stav: <green>Splněno"
-        - "<gray>Získal jsi první diamant!"
+        - "<gray>Klikni pro vybrání odměny!"
+      commands:
+        - "[CONSOLE] give {player} emerald 5"
+        - "[PLAYER] say Získal jsem odměnu za první pokrok!"
     adv_2:
       slot: 12
       material: "BEACON"
@@ -133,3 +137,5 @@ gui3:
       lore:
         - "<gray>Stav: <red>Nesplněno"
         - "<gray>Postav maják na spawnu."
+      commands:
+        - "[CONSOLE] give {player} nether_star 1"
