@@ -1,6 +1,7 @@
 package cz.craft.challengess;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.format.TextDecoration;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 
@@ -14,8 +15,10 @@ public class ColorUtils {
             return Component.empty();
         }
         if (input.contains("&")) {
-            return LEGACY.deserialize(input);
+            return LEGACY.deserialize(input)
+                    .decoration(TextDecoration.ITALIC, TextDecoration.State.FALSE);
         }
-        return MINI_MESSAGE.deserialize(input);
+        return MINI_MESSAGE.deserialize(input)
+                .decoration(TextDecoration.ITALIC, TextDecoration.State.FALSE);
     }
 }
